@@ -28,4 +28,5 @@ Implement a small frontend application to consume the API you developed above. I
 * Create an image field for the shoes and display them in the frontend.
 * Instead of a JSON file with the policy, add a YAML/JSON file with a CloudFormation template that we can use to create the policy.
 * Set up the CloudFormation template to create the S3 bucket.
+* Unit tests
 
