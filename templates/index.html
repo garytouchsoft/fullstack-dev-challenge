@@ -1,0 +1,47 @@
+{% load static %} {% load custom_tags %}
+<html lang="en">
+    <head>
+        {% block title %}
+        <title>Shoe Store</title>
+        {% endblock %}
+
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script>
+            const csrfToken = '{{ csrf_token }}';
+            const orderUrl = '{% url 'order_view' %}';
+            const summaryUrl = '{% url 'summary_view' %}';
+        </script>
+        <script src="{% static 'js/util.js' %}"></script>
+    </head>
+    <body>
+        {% block content %} {% if shoe_list %}
+        <div class="container">
+            <div class="p-0">
+                <h1>Shoe List</h1>
+            </div>
+            <div class="col-xs-12" style="height: 50px;"></div>
+
+            <div class="row">
+                <ul class="list-inline">
+                    {% for shoe in shoe_list %}
+                    <li class="list-group-item col-xs-12">
+                        <img src="{% get_photo_url shoe=shoe %}" class="img-thumbnail" />
+                        &nbsp;&nbsp; {{ shoe.reference }} &nbsp;&nbsp; {{ shoe.brand }} &nbsp;&nbsp;
+                        <button class="btn btn-primary" onclick="order_shoe({{ shoe.id }});">
+                            Order
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% else %}
+        <p>There are no shoes in the store.</p>
+        {% endif %} {% endblock %}
+    </body>
+</html>

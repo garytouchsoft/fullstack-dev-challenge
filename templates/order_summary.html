@@ -1,0 +1,30 @@
+{% load static %} {% load custom_tags %}
+<html lang="en">
+    <head>
+        {% block title %}
+        <title>Order Summary</title>
+        {% endblock %}
+
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+    </head>
+    <body>
+        {% block content %}
+        <div class="container">
+            <div class="p-0">
+                <h1>Order Summary</h1>
+            </div>
+            <div class="col-xs-12" style="height: 50px;"></div>
+            <div class="row">
+
+            <p>Order ID: {{ order_id }}</p>
+            <p>Client: {{ client }}</p>
+            <p>Shoe: {{ shoe }}</p>
+            <p>Amount: {{ amount }}</p>
+
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
