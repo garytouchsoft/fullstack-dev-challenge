@@ -49,6 +49,21 @@ My bucket has block public disabled and a policy:
     ]
 }
 
+## Docker
+
+To use Docker add the environment variables to aws.env
+
+To run:
+sudo docker-compose up
+
+
+
+
+
+
+
+
+
 
 
 
