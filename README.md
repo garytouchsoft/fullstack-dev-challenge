@@ -14,6 +14,7 @@ python -m venv .env
 source .env/bin/activate
 cd [project root]
 pip install -r requirements.txt
+python manage.py collectstatic
 python manage.py runserver
 
 
